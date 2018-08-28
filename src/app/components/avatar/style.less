@@ -1,0 +1,62 @@
+@import '../../style.less';
+
+@imageSize: 60px;
+@imageSizeSmall: 60px;
+
+.account-avatar {
+    position: relative;
+    min-height: @imageSize;
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: @imageSize;
+        height: @imageSize;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .userinfo {
+        line-height: 1.8;
+        padding-left: @imageSize + 10px;
+        p {
+            margin: 0;
+        }
+        .sub {
+            margin-top: 10px;
+            color: @text-color-secondary;
+            font-size: @font-size-base - 1px;
+        }
+    }
+}
+
+.goods-avatar {
+    position: relative;
+    min-height: @imageSizeSmall;
+    img {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: @imageSizeSmall;
+        height: @imageSizeSmall;
+        object-fit: cover;
+    }
+    .goods-info {
+        padding-left: @imageSizeSmall + 10px;
+        .title {
+            margin: 0;
+            height: 38px;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
+        .sub {
+            line-height: 1;
+            margin-top: 10px;
+            color: @text-color-secondary;
+            font-size: @font-size-base - 1px;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+@labelWidth: 100px;
+
+.ant-modal-wrap {
+    z-index: 1050!important;
+}
+
+.dialog {
+    top: 60px;
+    .ant-modal-body {
+        max-height: 480px;
+        overflow: auto;
+    }
+
+    .ant-form-item {
+        display: flex;
+        margin-bottom: 10px;
+        &-label {
+            width: @labelWidth;
+        }
+        &-extra {
+            padding-left: @labelWidth;
+        }
+
+        &-control-wrapper {
+            flex: 1;
+        }
+    }
+    .form-item-extra {
+        padding-left: @labelWidth;
+    }
+
+    .ant-checkbox-group {
+        padding-top: 10px;
+        .ant-checkbox-group-item {
+            width: 200px;
+            margin-bottom: 10px;
+            margin-right: 0;
+        }
+    }
+}

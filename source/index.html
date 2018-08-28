@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>店铺助手</title>
+    <!-- <link rel='stylesheet' type="text/css" href="http://localhost:8010/app.css" /> -->
+    <!-- <script type="text/javascript" src="assets/js/jquery.min.js"></script> -->
+    <!-- <script>
+        if (typeof module === 'object') {
+            window.jQuery = window.$ = module.exports;
+        };
+    </script> -->
+    <script>
+        const {
+            ipcRenderer,
+            remote
+        } = require('electron');
+        ipcRenderer.sendSync('READY');
+        window.MServer = remote.getGlobal('server');
+        window.Config = remote.getGlobal('config');
+    </script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!-- <script type="text/javascript" src="http://localhost:8010/app.js"></script> -->
+    <script>
+        const cssFiles = ['app.css', 'vendor.css'];
+        const jsFiles = ['app.js', 'vendor.js'];
+
+        cssFiles.forEach(item => {
+            const onlineStyle = document.createElement('link');
+            onlineStyle.rel = 'stylesheet';
+            onlineStyle.type = 'text/css';
+            onlineStyle.href = `${Config.qiniu_prefix}/${Config.files[item]}`;
+            document.head.appendChild(onlineStyle);
+        });
+
+        jsFiles.forEach(item => {
+            const onlineScript = document.createElement('script');
+            onlineScript.type = 'text/javascript';
+            onlineScript.src = `${Config.qiniu_prefix}/${Config.files[item]}`;
+            document.body.appendChild(onlineScript);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+@import '../../style.less';
+
+.right-task {
+    right: 0;
+    top: 37px;
+    height: calc(~'100vh - 37px');
+    .ant-drawer-mask {
+        background-color: transparent;
+    }
+    .ant-drawer-content-wrapper {
+        border-left: 1px solid @border-color-split;
+        box-shadow: 3px 1px 6px rgba(0, 0, 0, .6);
+        .ant-drawer-content {
+            background-color: rgba(244, 244, 244, .9);
+        }
+    }
+    .ant-drawer-body {
+        padding: 0 0 20px;
+        height: calc(~'100% - 45px');
+        overflow: auto;
+        background: @background-color-content;
+    }
+    ul.task-list {
+        li {
+            padding: 10px 10px 0;
+            background-color: #fff;
+            border-bottom: 1px solid @border-color-split;
+            .goods-avatar {
+                margin-bottom: 10px;
+            }
+            .text-footer {
+                position: relative;
+                padding: 8px 0;
+                border-top: 1px solid @border-color-split;
+                .right {
+                    position: absolute;
+                    top: 8px;
+                    right: 0;
+                }
+                p {
+                    padding-right: 50px;
+                }
+            }
+            p {
+                margin-bottom: 0;
+                font-size: 12px;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+                overflow: hidden;
+            }
+        }
+    }
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 10px;
+        background-color: #fff;
+        border-top: 1px solid @border-color-split;
+        button {
+            margin-right: 10px;
+        }
+    }
+}

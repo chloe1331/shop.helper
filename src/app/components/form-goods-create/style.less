@@ -1,0 +1,38 @@
+@import '../../style.less';
+
+.goods-create-form {
+    border-top: 1px solid @border-color-split;
+    padding: 16px 10px;
+    height: calc(~'100% - 380px');
+    overflow: auto;
+    .ant-form {
+        &-item {
+            display: flex;
+            margin-bottom: 16px;
+            &-label {
+                width: 100px;
+                line-height: 32px;
+            }
+            &-control-wrapper {
+                width: calc(~'100% - 100px');
+            }
+            &-control {
+                line-height: 32px;
+                button {
+                    top: -1px;
+                    margin-left: 16px;
+                }
+            }
+            &-extra {
+                padding-left: 100px;
+            }
+        }
+        &-explain {
+            margin-top: 5px;
+        }
+    }
+    .ant-form-item label {
+        width: 30%;
+        margin-top: 5px;
+    }
+}

@@ -1,0 +1,103 @@
+@import '../public/theme/style.less';
+
+@leftmenuWidth: 200px;
+
+html, body {
+    height: 100%;
+    background-color: #fff;
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+webview {
+    width: 100%;
+    height: 100%;
+    -webkit-app-region: no-drag;
+}
+
+.app-header {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    -webkit-app-region: drag;
+}
+
+* {
+    font-weight: 300;
+}
+
+// 滚动条
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    background-color: transparent;
+    border-left: 1px solid @border-color-split;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    &:hover {
+        background-color: #888;
+    }
+}
+
+.text {
+    &-price {
+        color: @text-color-price;
+    }
+    &-secondary, &-secondary:hover {
+        color: @text-color-secondary;
+    }
+    &-success {
+        color: @success-color;
+    }
+    &-error {
+        color: @error-color;
+    }
+    &-warn {
+        color: @warn-color;
+    }
+    &-info {
+        color: @primary-color;
+    }
+}
+
+.float {
+    &-right {
+        float: right;
+    }
+}
+
+.app-header {
+    height: 37px;
+    padding: 0 15px;
+    background-color: @background-color-content;
+    border-bottom: 1px solid @border-color-split;
+    .right-btns {
+        float: right;
+        a {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        i {
+            font-size: 22px;
+            line-height: 37px;
+            color: @text-color;
+            &.anticon-setting {
+                position: relative;
+                top: -1px;
+                font-size: 18px;
+            }
+        }
+    }
+    &:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+}

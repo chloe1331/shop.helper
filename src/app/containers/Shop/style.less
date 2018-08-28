@@ -1,0 +1,64 @@
+@import '../../style.less';
+
+ul.account-list {
+    list-style: none;
+    >li {
+        position: relative;
+        padding-right: 90px;
+        background-color: #fff;
+        border-bottom: 1px solid @border-color-split;
+        border-radius: @border-radius-base;
+        .account-avatar {
+            padding: 10px;
+            img {
+                top: 10px;
+                left: 10px;
+            }
+        }
+        .right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 10px;
+            text-align: right;
+            .ant-btn {
+                display: block;
+                width: 70px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+.table-batch-btn {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 16px;
+}
+
+.layout-content {
+    .ant-table-pagination.ant-pagination {
+        padding: 0 16px;
+    }
+}
+
+.goods-table {
+    position: relative;
+    max-height: 380px;
+    overflow: hidden;
+    &.empty {
+        height: auto;
+    }
+    &.loading {
+        height: 380px;
+    }
+}
+
+.goods-table.empty+.goods-create-form {
+    border-top-width: 0;
+}
+.goods-table.no-scroll+.goods-create-form {
+    height: auto;
+}

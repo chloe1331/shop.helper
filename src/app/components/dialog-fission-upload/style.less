@@ -1,0 +1,30 @@
+@import '../../style.less';
+
+.dialog-fission-upload {
+    .fission-content-item {
+        width: 400px;
+        flex: 1;
+        margin-right: 20px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .ant-modal-body {
+        display: flex;
+    }
+    .goods-avatar {
+        padding: 10px;
+        border: 1px solid @border-color-split;
+        margin-bottom: 15px;
+        .goods-info {
+            min-height: 40px;
+            padding-left: 50px;
+        }
+        img {
+            top: 10px;
+            left: 10px;
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
