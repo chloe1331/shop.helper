@@ -5,5 +5,6 @@ module.exports = {
     punish: require('./punish'),
     cate: require('./cate'),
     lexicon: require('./lexicon'),
-    limit: require('./limit')
+    limit: require('./limit'),
+    app: require('./app')
 };

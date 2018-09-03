@@ -1,4 +1,5 @@
 const Utils = require('../utils');
+const Config = require('../../config');
 
 const Api = [
     {
@@ -36,9 +37,9 @@ const Api = [
                             title: goods.title,
                             images: goods.images,
                         };
-                        await Utils.Global.delay(100);
                     }
                 }
+                await Utils.Global.delay(100);
                 if (product_ratio) config.product_ratio = parseFloat(product_ratio) * (i + 1);
                 if (sum_ratio) config.sum_ratio = parseFloat(sum_ratio) * (i + 1);
                 const _data = {
@@ -75,6 +76,11 @@ const Api = [
             }, {
                 sort: '-created_at'
             });
+
+            const configRecord = await db.Config.findOne({
+                appId: Config.appId
+            });
+
             if (taskList && taskList.length) {
                 const task = taskList[0];
                 await db.Task.findOneAndUpdate({
@@ -93,9 +99,12 @@ const Api = [
                     }, {
                         status: 20,
                         success: typeof res == 'object' ? JSON.stringify(res) : res
-                    }).then(() => {
+                    }).then(async () => {
                         ctx.app.is_task = false;
                         ctx.app.emit('reload:task');
+                        if (configRecord && configRecord.taskInterval) {
+                            await Utils.Global.delay(configRecord.taskInterval);
+                        }
                         ctx.app.emit('task:start');
                     });
                 }).catch(async e => {

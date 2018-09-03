@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Loading from '../loading';
 import Empty from '../empty';
 import Avatar from '../avatar';
+import DialogTaskSetting from '../dialog-task-setting';
 
 import './style.less';
 
@@ -128,6 +129,13 @@ export default class RightTask extends Component {
                 <div className="footer">
                     <Button size="small" type="primary" onClick={this.handleStartTask}>手动启动</Button>
                     <Button size="small" onClick={() => this.handleResetTask()}>重试中断</Button>
+                    <a
+                        className="right"
+                        onClick={() => {
+                            onTrigger();
+                            DialogTaskSetting.open();
+                        }}
+                    >设置</a>
                 </div>
             </Drawer>
         );

@@ -2,8 +2,8 @@
 
 .right-task {
     right: 0;
-    top: 37px;
-    height: calc(~'100vh - 37px');
+    top: 37px!important;
+    height: calc(~'100vh - 37px')!important;
     .ant-drawer-mask {
         background-color: transparent;
     }
@@ -61,6 +61,10 @@
         border-top: 1px solid @border-color-split;
         button {
             margin-right: 10px;
+        }
+        .right {
+            float: right;
+            line-height: 24px;
         }
     }
 }

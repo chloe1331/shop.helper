@@ -18,7 +18,7 @@ class Lexicon extends Component {
             sid: null,
             detail: null
         };
-        const handles = ['initCate', 'handleCreateTitle', 'handleSetLimit'];
+        const handles = ['initCate', 'handleCreateTitle', 'handleSetLimit', 'handleDeleteRepeatTitle'];
         handles.forEach(item => {
             this[item] = this[item].bind(this);
         });
@@ -99,6 +99,25 @@ class Lexicon extends Component {
             titles: detail.titles
         }).catch(e => message.error(e.message));
     }
+    
+    handleDeleteRepeatTitle() {
+        const { titles, _id } = this.state.detail;
+
+        const _arr = [];
+
+        titles.forEach(item => {
+            if (!_arr.includes(item)) {
+                _arr.push(item);
+            }
+        });
+
+        MServer.post('/lexicon/saveTitles.json', {
+            id: _id,
+            titles: _arr
+        }).then(() => {
+            this.getDetail();
+        }).catch(e => message.error(e.message));
+    }
 
     render() {
         const { loading, init, config, second, sid, detail } = this.state;
@@ -156,7 +175,10 @@ class Lexicon extends Component {
                                     ) : null
                                 }
                                 {
-                                    sid ? <Button onClick={this.handleCreateTitle}>组合标题</Button> : null
+                                    sid ? [
+                                        <Button key="concat" style={{ marginRight: '5px' }} onClick={this.handleCreateTitle}>组合标题</Button>,
+                                        <Button key="repeat" onClick={this.handleDeleteRepeatTitle}>去除重复标题</Button>
+                                    ] : null
                                 }
                                 {
                                     sid ? (

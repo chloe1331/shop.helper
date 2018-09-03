@@ -475,12 +475,13 @@ const Api = [
                         if (_salePropMap[propValues[0]]) {
                             let nameMatch = null;
                             if (_salePropMap[propValues[0]][propValues[1]]) {
-                                const nameReg = new RegExp(`(${_salePropMap[propValues[0]][propValues[1]].text})(.*$)`);
+                                const nameReg = new RegExp(`(${_salePropMap[propValues[0]][propValues[1]].text} )(.*$)`);
                                 nameMatch = propMap[numberProp].values[propValues[1]].name.match(nameReg);
                             }
-                            const is_custom = !_salePropMap[propValues[0]][propValues[1]] && !nameMatch;
+                            const is_custom = !((_salePropMap[propValues[0]][propValues[1]] && propMap[numberProp].values[propValues[1]].name == _salePropMap[propValues[0]][propValues[1]].text) || nameMatch);
                             const imgUrl = propMap[numberProp].values[propValues[1]].image || '';
-                            const value = is_custom ? `-${propMap[numberProp].values[propValues[1]].vid}` : propMap[numberProp].values[propValues[1]].vid;
+                            const value = is_custom ? `-1${propMap[numberProp].values[propValues[1]].vid}` : propMap[numberProp].values[propValues[1]].vid;
+
                             const _val = {
                                 text: nameMatch ? nameMatch[1] : propMap[numberProp].values[propValues[1]].name,
                                 value,

@@ -86,7 +86,7 @@ class Import extends Component {
     render() {
         const { shop } = this.props;
         const { loading, list } = this.state;
-
+        console.log(list)
         const columns = [
             {
                 key: 'title',

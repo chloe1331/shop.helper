@@ -11,7 +11,8 @@ const models = {
     Image: require('./Image'),
     Punish: require('./Punish'),
     Lexicon: require('./Lexicon'),
-    Limit: require('./Limit')
+    Limit: require('./Limit'),
+    Config: require('./Config')
 };
 
 module.exports = () => {

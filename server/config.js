@@ -10,6 +10,7 @@ module.exports = {
         Image: `${home}/.shop_helper/image`,
         Config: `${home}/.shop_helper/config`
     },
+    appId: 'rSEu3cl7sIT7a3feNj0rVrmDxEHnijTbjWbF8WlkHFDMpVuXyVTx8yvHs6hUmQ9',
     taobao: {
         url: {
             login: 'https://login.taobao.com/member/login.jhtml',

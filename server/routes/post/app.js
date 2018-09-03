@@ -45,6 +45,33 @@ const Api = [{
 
         await next();
     }
+}, {
+    name: 'taskSetting',
+    cb: async (ctx, next, {
+        db
+    }) => {
+        const {
+            imageInterval,
+            taskInterval
+        } = ctx.request.body;
+        const appId = 'rSEu3cl7sIT7a3feNj0rVrmDxEHnijTbjWbF8WlkHFDMpVuXyVTx8yvHs6hUmQ9';
+        
+        await db.Config.findOneAndUpdate({
+            appId
+        }, {
+            appId,
+            imageInterval: parseInt(imageInterval),
+            taskInterval: parseInt(taskInterval)
+        }, {
+            upsert: true
+        });
+
+        ctx.body = {
+            ret: 0
+        };
+
+        await next();
+    }
 }];
 
 module.exports = Api;

@@ -19,6 +19,7 @@ import DialogCreateTitle from './dialog-create-title';
 import DialogSetLimit from './dialog-set-limit';
 import DialogFissionUpload from './dialog-fission-upload';
 import DialogSetting from './dialog-setting';
+import DialogTaskSetting from './dialog-task-setting';
 
 module.exports = {
     Header,
@@ -42,5 +43,6 @@ module.exports = {
     DialogCreateTitle,
     DialogSetLimit,
     DialogFissionUpload,
-    DialogSetting
+    DialogSetting,
+    DialogTaskSetting
 };

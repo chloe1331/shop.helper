@@ -20,6 +20,7 @@ export default class Home extends Component{
     }
     
     handleTrigger(visible) {
+        console.log(visible)
         this.setState({
             visible
         });
